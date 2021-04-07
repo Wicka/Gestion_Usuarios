@@ -13,7 +13,7 @@ function Connect_BBDD(){
 
       //dades de connexió
       $servidor = "localhost";
-      $basededades = "gestion_usuarios";
+      $basededades = "users_control";
 
       $usuari = "user";
       $contrasenya = "user";

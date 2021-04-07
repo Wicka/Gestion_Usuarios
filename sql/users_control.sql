@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-04-2021 a las 14:19:00
+-- Tiempo de generación: 07-04-2021 a las 10:32:46
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.4.15
 
@@ -18,18 +18,18 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `gestion_usuarios`
+-- Base de datos: `users_control`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estados_users`
+-- Estructura de tabla para la tabla `status_users`
 --
 
-CREATE TABLE `estados_users` (
-  `id` int(2) UNSIGNED NOT NULL,
-  `estado` varchar(25) NOT NULL
+CREATE TABLE `status_users` (
+  `id_status` int(2) UNSIGNED NOT NULL,
+  `status` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -40,12 +40,15 @@ CREATE TABLE `estados_users` (
 
 CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
-  `alias` varchar(25) NOT NULL,
+  `nick` varchar(25) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `nombre` varchar(25) NOT NULL,
-  `apellido_01` varchar(30) NOT NULL,
-  `apellido_02` varchar(30) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `surname_01` varchar(30) NOT NULL,
+  `surname_02` varchar(30) DEFAULT NULL,
+  `birth_date` datetime NOT NULL,
   `pwd` varchar(30) NOT NULL,
+  `create_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `last_connection` datetime NOT NULL DEFAULT current_timestamp(),
   `id_estado` int(2) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -54,23 +57,29 @@ CREATE TABLE `users` (
 --
 
 --
--- Indices de la tabla `estados_users`
+-- Indices de la tabla `status_users`
 --
-ALTER TABLE `estados_users`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `status_users`
+  ADD PRIMARY KEY (`id_status`);
 
 --
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `alias` (`alias`),
+  ADD UNIQUE KEY `alias` (`nick`),
   ADD UNIQUE KEY `email` (`email`),
   ADD KEY `id_estado` (`id_estado`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `status_users`
+--
+ALTER TABLE `status_users`
+  MODIFY `id_status` int(2) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -86,7 +95,7 @@ ALTER TABLE `users`
 -- Filtros para la tabla `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `estados_users` (`id`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `status_users` (`id_status`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

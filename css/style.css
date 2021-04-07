@@ -1,6 +1,13 @@
+
+body{
+  background-image: url("../img/fondo/fondo.jpg");
+}
+section, div{
+  padding: 15px;
+}
+
 .contenedor{
   width: 90%;
-  border: solid 1px black;
   display: flex;
   flex-wrap: nowrap;
   justify-content:center;
@@ -8,10 +15,58 @@
   margin-right: auto;
 }
 
-.division_vertical{
-  border : solid 1px blue;
+.contenedor .division_vertical{
+
   width: 45%;
+  text-align: center;
+
 }
+.form_texto {
+    text-align: center;
+    font-size: 15px;
+}
+
+.contenedor .div_button{
+    text-align: center;
+}
+
+
+
+.div_form_error {
+  color: red;
+  margin-bottom:0;
+  height: 15px;
+}
+
+
+/*******************************/
+/*******************************/
+
+/*******************************/
+/* BUTON ACCESO A LOGIN */
+/*******************************/
+
+#button{
+    border: none;
+    background: rgba(0,0,0,0);
+    width: 50%;
+    font-size: 25px;
+
+}
+#button:hover{
+    border: none;
+    background-color: #B3C5C5;
+}
+
+/*******************************/
+/*******************************/
+
+.division_vertical#div_login{
+  box-shadow: 2px 2px 10px #666;
+}
+
+
+
 
 /*Media Queries*/
 /* Large desktops and laptops */

@@ -16,6 +16,9 @@
 				<!-- google font -->
 				<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
+				<!-- Enllaç a Javascript Extern -->
+				<script  type="text/javascript" src="js/functions.js"></script>
+
 				<title>Gestion Usuario</title>
 
 		</head>
@@ -27,7 +30,7 @@
 				</header>
 
 				<!--MENU NAVEGACION-->
-
+				<label> <h2>Menu provisional</h2> </label>
 				<nav>
 						<ul>
 								<li> <a href="formularios/form_altas.php">Registrarse</a> </li>
@@ -39,28 +42,30 @@
 
 				<section class ="contenedor">
 
-							<div class="division_vertical">
-									<h1>Bienvenido a ..</h1>
+							<div id="div_login" class="division_vertical">
+									<h1>Bienvenido a ..</h1><hr><br><br>
 
-									<form class="login" action="verificacion/verifico_user.php" method="POST">
+								<form onsubmit="return valida_form();" class="login" action="verificacion/verifico_user.php" method="POST">
 
-												<label>Usuario: <br>
-														<input type="text" name="name"  placeholder="Usuario" required>
-												</label>
-												<br>
-												<label>Contraseña: <br>
-														<input type="password" name="pwd"  placeholder="Contraseña" required>
-												</label>
-												<hr>
-												<input type="submit" name="accede" value="Accede">
+												<div class="div_form_field">
+														<input  class="form_texto"  type="text" name="nick" id="nick" placeholder="User name" onblur="rellena_nick();"><br>
+														<div class="div_form_error" id="message_nick"></div>
+												</div>
+
+												<div class="div_form_field">
+														<input  class="form_texto"  type="password" name="pwd" id="pwd" placeholder="User password" onblur="rellena_password();"><br>
+														<div class="div_form_error" id="message_pwd"></div>
+												</div>
+
+												<div class="div_button"><input id="button" type="submit" name="login" value="LOGIN"></div>
+
 									</form>
 							</div>
 
-
 				</section>
 
+			<br><hr>
 
-			<br>
   		<footer>Gestion Usuario 2021 by Wicka</footer>
 
 		</body>
