@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-04-2021 a las 10:32:46
+-- Tiempo de generación: 07-04-2021 a las 14:26:59
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.4.15
 
@@ -46,7 +46,7 @@ CREATE TABLE `users` (
   `surname_01` varchar(30) NOT NULL,
   `surname_02` varchar(30) DEFAULT NULL,
   `birth_date` datetime NOT NULL,
-  `pwd` varchar(30) NOT NULL,
+  `pwd` varchar(255) NOT NULL,
   `create_date` datetime NOT NULL DEFAULT current_timestamp(),
   `last_connection` datetime NOT NULL DEFAULT current_timestamp(),
   `id_estado` int(2) UNSIGNED NOT NULL
