@@ -16,9 +16,9 @@
 
         if($user->num_rows > 0){
             $_user = $user->fetch_assoc();
-
         }else{
-          //echo "<br>No Existe este usuario";
+          echo "<br>No Existe este usuario";
+          $_user=-1;
         }
 
         $conn->close();

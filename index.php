@@ -15,7 +15,7 @@
 				<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
 				<!-- Enllaç a Javascript Extern -->
-				<script  type="text/javascript" src="js/functions.js"></script>
+				<script  type="text/javascript" src="js/functions_login.js"></script>
 
 				<title>Gestion Usuario</title>
 
@@ -43,7 +43,7 @@
 							<div id="div_login" class="division_vertical">
 									<h1>Bienvenido a ..</h1><hr><br>
 
-								<form onsubmit="return valida_form();" class="login" action="verificacion/verifico_user.php" method="POST">
+								<form onsubmit="return valida_login();" class="login" action="seguridad/verifico_user.php" method="POST">
 
 												<div class="div_form_field">
 														<input  class="form_texto"  type="text" name="nick" id="nick" placeholder="User name" onblur="rellena_nick();">

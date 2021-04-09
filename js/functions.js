@@ -1,81 +1,87 @@
 
-function rellena_nick(){
-	var nick = document.getElementById("nick").value;
+//VERIFICACION DE QUE LOS CAMPOS ESTAN RELLENADOS Y CON LOS PARAMETROS QUE QUIERO
 
-	if (nick == "") {
-		document.getElementById("message_nick").innerHTML = "Escribe tu nick!";
-	}else{
-		document.getElementById("message_nick").innerHTML = "";
-		return true;
-	}
+function rellena_nick(){
+		var nick = document.getElementById("nick").value;
+
+		if (nick == "") {
+				document.getElementById("message_nick").innerHTML = "Escribe tu nick!";
+			}else{
+					document.getElementById("message_nick").innerHTML = "";
+					return true;
+				}
 }
 
 function rellena_email(){
-	var email = document.getElementById("email").value;
+		var email = document.getElementById("email").value;
 
-	if (email == "") {
-		document.getElementById("message_email").innerHTML = "Escribe tu email!";
-	}else{
-		document.getElementById("message_email").innerHTML = "";
-		return true;
-	}
+		if (email == "") {
+				document.getElementById("message_email").innerHTML = "Escribe tu email!";
+			}else{
+					document.getElementById("message_email").innerHTML = "";
+					return true;
+				}
 }
 
 function rellena_name(){
-	var name = document.getElementById("name").value;
+		var name = document.getElementById("name").value;
 
-	if (name == "") {
-		document.getElementById("message_name").innerHTML = "Escribe tu nombre!";
-	}else{
-		document.getElementById("message_name").innerHTML = "";
-		return true;
-	}
+		if (name == "") {
+				document.getElementById("message_name").innerHTML = "Escribe tu nombre!";
+			}else{
+					document.getElementById("message_name").innerHTML = "";
+					return true;
+				}
 }
 
 function rellena_surname_1(){
-	var surname_1 = document.getElementById("surname_1").value;
+		var surname_1 = document.getElementById("surname_1").value;
 
-	if (surname_1 == "") {
-		document.getElementById("message_surname_1").innerHTML = "Escribe tu primer apellido!";
-	}else{
-		document.getElementById("message_surname_1").innerHTML = "";
-		return true;
-	}
+		if (surname_1 == "") {
+				document.getElementById("message_surname_1").innerHTML = "Escribe tu primer apellido!";
+			}else{
+					document.getElementById("message_surname_1").innerHTML = "";
+					return true;
+				}
 }
 
+
+/**************************************************************/
+/*NO ES CAMPO OBLIGATORIO
+/*************************************************************/
 /*
 function rellena_surname_2(){
-	var surname_2 = document.getElementById("surname_2").value;
+		var surname_2 = document.getElementById("surname_2").value;
 
-	if (surname_2 == "") {
-		document.getElementById("message_surname_2").innerHTML = "Escribe tu segundo apellido!";
-	}else{
-		document.getElementById("message_surname_2").innerHTML = "";
-		return true;
-	}
+		if (surname_2 == "") {
+				document.getElementById("message_surname_2").innerHTML = "Escribe tu segundo apellido!";
+				}else{
+					document.getElementById("message_surname_2").innerHTML = "";
+					return true;
+				}
 }
 */
 
 
 function rellena_birth(){
 
-	var birth = document.getElementById("birth").value;
+		var birth = document.getElementById("birth").value;
 
-	var hoy = new Date();
-	var hoy_num		  = Date.parse(hoy);
-	var birth_num 	= Date.parse(birth);
-	var edad = hoy_num - birth_num;
+		var hoy = new Date();
+		var hoy_num		  = Date.parse(hoy);
+		var birth_num 	= Date.parse(birth);
+		var edad = hoy_num - birth_num;
 
-	if (birth == "") {
-			document.getElementById("message_birth").innerHTML = "Indica tu fecha nacimiento!";
-	}else{
-			if(edad <=0){
-					document.getElementById("message_birth").innerHTML = "Fecha nacimiento incorrecta, No puede ser posterior a fecha de hoy";
-			}else{
-					document.getElementById("message_birth").innerHTML = "" ;
-					return true;
-			}
-	}
+		if (birth == "") {
+				document.getElementById("message_birth").innerHTML = "Indica tu fecha nacimiento!";
+				}else{
+						if(edad <=0){
+								document.getElementById("message_birth").innerHTML = "Fecha nacimiento incorrecta, No puede ser posterior a fecha de hoy";
+								}else{
+										document.getElementById("message_birth").innerHTML = "" ;
+										return true;
+									}
+						}
 }
 
 
@@ -83,93 +89,91 @@ function rellena_birth(){
 
 function rellena_password(){
 
-	var pwd = document.getElementById("pwd").value;
+		var pwd = document.getElementById("pwd").value;
 
-	if (pwd == "") {
-		document.getElementById("message_pwd").innerHTML = "Escribe la Contraseña!";
-	}else{
+		if (pwd == "") {
+				document.getElementById("message_pwd").innerHTML = "Escribe la Contraseña!";
+				}else{
 
-					if(pwd.length < 8) { //minimum 8 chars
-						document.getElementById("message_pwd").innerHTML = "Minimo de 8 caracteres";
+						if(pwd.length < 8) { //minimum 8 chars
+								document.getElementById("message_pwd").innerHTML = "Minimo de 8 caracteres";
+							}else{
 
-					}else{
+									var letras = pwd.split("");
+									var especiales = "[-’/`~!¡#*$@_%+=.,^&(){}[|;:<>?¿]";
 
-						var letras = pwd.split("");
-						var especiales = "[-’/`~!¡#*$@_%+=.,^&(){}[|;:<>?¿]";
-
-						var icont_mayusculas = 0;
-						var icont_minusculas = 0;
-						var icont_numeros = 0;
-						var icont_especiales = 0;
+									var icont_mayusculas = 0;
+									var icont_minusculas = 0;
+									var icont_numeros = 0;
+									var icont_especiales = 0;
 
 
-						for (i=0; i<letras.length; i++){
+									for (i=0; i<letras.length; i++){
 
-									if(!isNaN(letras[i])){
-												icont_numeros++;
-												console.log("caracter: " + letras[i] + " contador_NU " + icont_numeros);
+											if(!isNaN(letras[i])){
+													icont_numeros++;
+													console.log("caracter: " + letras[i] + " contador_NU " + icont_numeros);
 
-									}else	if(especiales.includes(letras[i])) {
-													icont_especiales++;
-													console.log("caracter: " + letras[i] + " contador_SP " + icont_especiales);
+													}else	if(especiales.includes(letras[i])) {
+															icont_especiales++;
+															console.log("caracter: " + letras[i] + " contador_SP " + icont_especiales);
 
-												}else{
+															}else{
 
-															if(letras[i]===letras[i].toUpperCase()){
-																	icont_mayusculas++;
-																	console.log("caracter: " + letras[i] + " contador_Ma " + icont_mayusculas);
+																	if(letras[i]===letras[i].toUpperCase()){
+																			icont_mayusculas++;
+																			console.log("caracter: " + letras[i] + " contador_Ma " + icont_mayusculas);
+																		}
+
+																	if(letras[i]===letras[i].toLowerCase()){
+																			icont_minusculas++;
+																			console.log("caracter: " + letras[i] + " contador_mi " + icont_minusculas);
+																		}
+
 															}
 
-															if(letras[i]===letras[i].toLowerCase()){
-																	icont_minusculas++;
-																	console.log("caracter: " + letras[i] + " contador_mi " + icont_minusculas);
-															}
+											}	//CIERRO EL FOR
 
-											}
-
-							}	//CIERRO EL FOR
-
-							if (icont_mayusculas != 0 && icont_minusculas != 0 && icont_numeros != 0 && icont_especiales != 0){ //check if have nums, minus, mayus and specs
-										document.getElementById("message_pwd").innerHTML = "";
-										return true
-							}else{ //shows error
-										document.getElementById("message_pwd").innerHTML = "Ha de contener alguna Mayuscula, minusculas, algun numero y algun caracter especial";
-							}
-					  }
-				}
-		}
-
-
-
-
-
+										if (icont_mayusculas != 0 && icont_minusculas != 0 && icont_numeros != 0 && icont_especiales != 0){ //check if have nums, minus, mayus and specs
+												document.getElementById("message_pwd").innerHTML = "";
+												return true
+											}else{ //shows error
+													document.getElementById("message_pwd").innerHTML = "Ha de contener alguna Mayuscula, minusculas, algun numero y algun caracter especial";
+												}
+					  }//CIERRO ELSE DE MAYOR LONGITUD 8
+			}//CIERRO ELSE DE COMPROBAR TODO
+}
 
 
 function rellena_password_2(){
-	var pwd_1 = document.getElementById("pwd").value;
-	var pwd_2 = document.getElementById("pwd_2").value;
+		var pwd_1 = document.getElementById("pwd").value;
+		var pwd_2 = document.getElementById("pwd_2").value;
 
-	if (pwd_2 == "") {
-
-			document.getElementById("message_pwd_2").innerHTML = "Repite la Contraseña!";
-
-
-		}else if(pwd_2 != pwd_1){
-
-				document.getElementById("message_pwd_2").innerHTML = "Las contraseñas no coinciden";
-
-				}else{
-
-							document.getElementById("message_pwd_2").innerHTML = "";
-							return true;
+		if (pwd_2 == "") {
+					document.getElementById("message_pwd_2").innerHTML = "Repite la Contraseña!";
+					}else if(pwd_2 != pwd_1){
+							document.getElementById("message_pwd_2").innerHTML = "Las contraseñas no coinciden";
+							}else{
+									document.getElementById("message_pwd_2").innerHTML = "";
+									return true;
 				}
 }
 
 
 
-
 function valida_form(){
 	if (rellena_nick()&& rellena_email() && rellena_name() && rellena_surname_1() && rellena_birth() && rellena_password() && rellena_password_2()){
+		//	AMBOS CAMPOS RELLENADOS SIN ERRORES
+		return true;
+	}else{
+		//	CAMPOS SIN RELLENAR
+		return false;
+	}
+}
+
+
+function valida_login(){
+	if (rellena_nick() && rellena_password()){
 		//	AMBOS CAMPOS RELLENADOS SIN ERRORES
 		return true;
 	}else{
