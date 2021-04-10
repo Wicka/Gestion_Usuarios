@@ -3,7 +3,7 @@
 
 
 
-    function get_user_by_nick($_nick){
+    function get_user_by_nick($_nick ){
 
         $conn = Connect_BBDD();
         //CONEXION BASE DE DATOS
@@ -16,6 +16,7 @@
 
         if($user->num_rows > 0){
             $_user = $user->fetch_assoc();
+
         }else{
           echo "<br>No Existe este usuario";
           $_user=-1;

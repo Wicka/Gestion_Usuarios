@@ -1,4 +1,4 @@
-<?php include ("../db/altas.php"); ?>
+
 
 ﻿<doctype html>
 <html lang="es">
@@ -53,7 +53,7 @@
 											<div class="div_form_error" id="message_nick"></div>
 
 			               	<span style="color:red">*</span> EMAIL <br>
-											<input  class="form_texto"  type="text" name="email" id="email" placeholder="email"  required onblur="rellena_email();">
+											<input  class="form_texto"  type="email" name="email" id="email" placeholder="email"  required onblur="rellena_email();">
 											<div class="div_form_error" id="message_email"></div>
 
 			             		<span style="color:red">*</span>   NAME <br>
@@ -83,19 +83,15 @@
 											<hr>
 											<div class="div_pie">
 
-													<label>Mantener Usuario
-																<input type="checkbox" id="mem_user" name="mem_user" value="mem_user">
-													</label>
-													<br>
 													<label>Acepto la Politica de datos
 																<input type="checkbox" id="politica" name="politica" value="politica">
 													</label>
 
-													<a href="politica_datos.php">Leer politica de datos !! </a>
+													<a href="../vistas/politica_datos.php">Leer politica de datos !! </a>
 
 											</div>
 											<hr>
-											<div class="div_button"><input id="button" type="submit" name="login" value="LOGIN"></div>
+											<div class="div_button"><input id="button" type="submit" name="Aceptar" value="ACEPTAR"></div>
 
 
 								</form>

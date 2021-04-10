@@ -1,3 +1,11 @@
+
+<?php
+		session_start();
+		if(isset($_SESSION['user'])){
+			header("Location: vistas/perfil_usuario.php");
+		}
+ ?>
+
 ﻿<doctype html>
 <html lang="es">
 
@@ -32,7 +40,7 @@
 				<nav>
 						<ul>
 								<li> <a href="formularios/form_altas.php">Registrarse</a> </li>
-								<li> <a href="formularios/form_detalles.php">Login</a> </li>
+								<li> <a href="vistas/perfil_usuario.php">Perfil</a> </li>
 								<li> <a href="formularios/form_editar.php">Editar Usuario</a> </li>
 								<li> <a href="formularios/form_eliminar.php">Eliminar Usuario</a> </li>
 						</ul>

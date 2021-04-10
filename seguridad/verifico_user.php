@@ -42,7 +42,7 @@
                             echo '¡La contraseña es válida!';
                             echo "<hr>YA VERE A DONDE TE ENVIO .... SERA TU PAGINA DE PERFIL<hr>";
                         }else{
-                            echo 'Ha ocurrido un error prueba otra vez !';
+                            echo 'Contraseña erronea !';
                             echo "<hr>TE ENVIO A INDEX PQ NO ESA PWD NO ES CORRECTA TE MOSTRARE ESTE MSJ<hr>";
                             //  header("Location: ..");
                             //  die();

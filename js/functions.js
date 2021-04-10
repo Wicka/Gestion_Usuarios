@@ -15,13 +15,30 @@ function rellena_nick(){
 function rellena_email(){
 		var email = document.getElementById("email").value;
 
+
 		if (email == "") {
-				document.getElementById("message_email").innerHTML = "Escribe tu email!";
+				document.getElementById("message_email").innerHTML = "Escribe tu email !";
 			}else{
-					document.getElementById("message_email").innerHTML = "";
-					return true;
+
+
+					 if( validar_email( email ) )
+					 {
+							 document.getElementById("message_email").innerHTML = "";
+							 return true;
+					 }
+					 else
+					 {
+							 document.getElementById("message_email").innerHTML = "Escribe tu email correctamente!";
+					 }
 				}
 }
+
+function validar_email( email )
+{
+    var patron = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return patron.test(email) ? true : false;
+}
+
 
 function rellena_name(){
 		var name = document.getElementById("name").value;
