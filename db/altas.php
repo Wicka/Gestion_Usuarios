@@ -1,6 +1,8 @@
 <?php
     include ("conexio_bbdd.php");
     include ("../seguridad/funciones_seguridad.php");
+    include ("../sesiones/sesiones.php");
+
 
 
 
@@ -22,7 +24,7 @@
 
 
           $_pwd_codificada = codifica_PWD($_pwd);
-
+/*
             echo "CAMPOS <hr>";
             echo "nick :".$_nick."<hr>";
             echo "pwd :".$_pwd."<hr>";
@@ -33,16 +35,24 @@
             echo "email :".$_email."<hr>";
 
             echo "MI HASH :". $_pwd_codificada."<hr>";
-
+*/
+          echo "01<hr>";
 
           if(verifica_nick($_nick,$conn)){
-
+          echo "02<hr>";
 
               echo "EL NICK ".$_nick." YA ESTA EN USO.<hr>";
+              Usuario_en_uso($_nick , 1);
+              echo "<a href='../formularios/form_altas.php'>Altas</a>";
+
+
+          //    header("Location: ../formularios/form_altas.php");
+          //    die();
 
 
           }else{
-
+          echo "03<hr>";
+              Usuario_en_uso($_nick , 0);
               echo "NICK LIBRE <hr>";
 
             //GUARDO EN TABLA
@@ -71,15 +81,55 @@
 
           echo "EL ID ES : ".$user['id']."<hr>";
 
+
+
+
+          if ($_FILES['userfile']['error']!=0){
+
+             echo "ERROR EN LA SUBIDA <hr>";
+             echo $_FILES['userfile']['error']."<hr>";
+
+             //header("Location: ../form_altas.php");
+       }else {
+
+           echo "FICHERO SUBIDO CON EXITO<hr>";
+           //AQUI TENGO EL ID DEL REGISTRO Y AHORA QUIERO GUARDAR EL FICHERO CON ESTE NOMBRE
+
+           $_nom_foto_ID="../img/users/".$user['id'].".jpg";
+
+           if(is_uploaded_file($_FILES['userfile']['tmp_name'])){
+
+               if($_FILES['userfile']['size'] > 5120000){
+                     echo "TAMAÑO INCORRECTO <hr>";
+               }elseif(!(strpos($_FILES['userfile']['type'],"jpeg")) && !(strpos($_FILES['userfile']['type'],"jpg")) ){
+                     echo "TIPO DE ARCHIVO INCORRECTO <hr>";
+                     }else{
+                           move_uploaded_file($_FILES['userfile']['tmp_name'],$_nom_foto_ID);
+                           echo "MOVIDO CON EXITO A CARPETA <hr>";
+                     }
+           }else{
+               echo "no subes nada <hr>";
+           }
+       }
+
+
+
+
+
+
+
+
+
+          $conn->close();
+
+          echo "<hr>TE ENVIO A .....INDEX si todo bien NO TE MOSTRARE ESTE MSJ<hr>";
+        //       header("Location: ..");
+        //       die();
+
+
           }
 
 
-
-             $conn->close();
-
-             echo "<hr>TE ENVIO A INDEX NO TE MOSTRARE ESTE MSJ<hr>";
-      //       header("Location: ..");
-      //       die();
 
 
         }else{
@@ -95,8 +145,10 @@
       die();
     }
 
-    function verifica_nick($_nick,$conn ){
 
+
+
+    function verifica_nick($_nick,$conn ){
 
         $Query = "SELECT `pwd` FROM `users` WHERE `nick` = '$_nick'" ;
 

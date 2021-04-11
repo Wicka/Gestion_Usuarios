@@ -1,4 +1,5 @@
 
+
 //VERIFICACION DE QUE LOS CAMPOS ESTAN RELLENADOS Y CON LOS PARAMETROS QUE QUIERO
 
 function rellena_nick(){
@@ -29,7 +30,7 @@ function rellena_password(){
 function valida_login(){
 	if (rellena_nick() && rellena_password()){
 		return true;
-	}else{		
+	}else{
 		return false;
 	}
 }

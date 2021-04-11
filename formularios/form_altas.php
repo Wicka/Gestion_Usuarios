@@ -1,4 +1,31 @@
+<?php
 
+  session_start();
+	echo "04<hr>";
+
+	if(isset($_SESSION['user'])){
+		header("Location: ../vistas/perfil_usuario.php");
+	}
+
+
+
+
+	echo "05<hr>";
+
+		if (isset($_SESSION['en_uso'])){
+
+				echo "06<hr>";
+				echo "Ese Nick no esta disponible";
+				echo $_SESSION['en_uso'];
+			}else{
+
+				echo "07<hr>";
+				echo "NICK LIBRE<hr>";
+		//		echo $_SESSION['en_uso'];
+			}
+
+
+?>
 
 ﻿<doctype html>
 <html lang="es">
@@ -46,7 +73,8 @@
 									<span style="color:red">* Campos obligatorios</span>
 									<hr>
 
-								<form onsubmit="return valida_form();" class="login" action="../db/altas.php" method="POST">
+
+								<form onsubmit="return valida_form();" class="login" action="../db/altas.php" method="POST" enctype='multipart/form-data'>
 
 			               	<span style="color:red">*</span> NICK <br>
 											<input  class="form_texto"  type="text" name="nick" id="nick" placeholder="User name" required onblur="rellena_nick();">
@@ -81,6 +109,15 @@
 											<div class="div_form_error" id="message_pwd_2"></div>
 
 											<hr>
+
+											<!--	<input type='hidden' name='MAX_FILE_SIZE' value='100000'> <br> -->
+											<div class="fitxer">
+													<br>
+													<label>Sube una foto de un tamaño no superior a 50 KB.
+																<br><br> <input name='userfile' type='file'> <br><br>
+													</label>
+												</div>
+
 											<div class="div_pie">
 
 													<label>Acepto la Politica de datos
