@@ -1,6 +1,14 @@
 
 body{
-  background-color: #E8E8EA;
+
+  background: url("../img/fondo/fondo_01.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  font-size: 30px;
+
 }
 section, div{
   padding: 15px;
@@ -36,7 +44,14 @@ section, div{
 .div_form_error {
   color: red;
   margin-bottom:0;
-/*  height: 10px;*/
+  height: 15px;
+}
+
+.div_form_repetido{
+  color: blue;
+  margin-bottom:0;
+  height: 15px;
+
 }
 
 .div_pie{

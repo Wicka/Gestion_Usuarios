@@ -26,10 +26,10 @@
         echo "S_foto : <br>";
 */
 
-        if(file_exists("../img/users/".$_user['id'].".jpg")){
-              $_foto = "../img/users/".$_user['id'].".jpg";
+        if(file_exists("../img/users/".$_user['id'].".png")){
+              $_foto = "../img/users/".$_user['id'].".png";
             }else{
-              $_foto = "../img/users/0.jpg";
+              $_foto = "../img/users/0.png";
           }
   //echo "-".$_foto;
 

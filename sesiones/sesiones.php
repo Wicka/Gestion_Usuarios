@@ -22,7 +22,7 @@
             }
     }
 
-
+/*
 
     function Usuario_en_uso($_nick, $_libre){
       echo "sesion 01<hr>";
@@ -42,7 +42,7 @@
       }
 
     }
-
+*/
 
     function Destruir_Sesion(){
 

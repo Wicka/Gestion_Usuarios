@@ -55,6 +55,8 @@
 
                             $conn = Connect_BBDD();
                             actualizar_Conexion($_nick,$conn);
+
+                            
                             $conn->close();
 
                         }else{

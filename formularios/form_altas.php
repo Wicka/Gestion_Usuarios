@@ -1,16 +1,14 @@
 <?php
 
   session_start();
-	echo "04<hr>";
+
 
 	if(isset($_SESSION['user'])){
 		header("Location: ../vistas/perfil_usuario.php");
 	}
 
 
-
-
-	echo "05<hr>";
+/*
 
 		if (isset($_SESSION['en_uso'])){
 
@@ -21,9 +19,9 @@
 
 				echo "07<hr>";
 				echo "NICK LIBRE<hr>";
-		//		echo $_SESSION['en_uso'];
-			}
 
+			}
+*/
 
 ?>
 
@@ -38,6 +36,7 @@
 				<meta name="author" content="Ester Mesa">
 
 				<!-- Enllaç a l'arxiu CSS Extern -->
+        <link rel="stylesheet" href="../css/style.css" type="text/css"/>
 				<link rel="stylesheet" href="../css/style_forms.css" type="text/css"/>
 
 				<!-- google font -->
@@ -46,24 +45,28 @@
 				<!-- Enllaç a Javascript Extern -->
 				<script  type="text/javascript" src="../js/functions.js"></script>
 
+        <!--JQUERY -->
+        <script type="text/javascript" src="../js/jquery-3.6.0.min.js" ></script>
+
 				<title>New User</title>
 
 		</head>
 
-		<body>
+		<body>	<header>
 
-				<header>
+        <div class="contenedor">
 
-				</header>
+            <div   class="div_menu" >
+                  <ul class="nav">
+                    <li> <a href="../index.php">Inicio</a> </li>
+                    </ul>
+            </div>
 
-				<!--MENU NAVEGACION
-				<label> <h2>Menu provisional</h2> </label>-->
-				<nav>
-						<ul>
-                <li> <a href="../index.php">Inicio</a> </li>
 
-						</ul>
-				</nav>
+
+      </header>
+
+
 
 				<section class ="contenedor">
 
@@ -77,11 +80,12 @@
 								<form onsubmit="return valida_form();" class="login" action="../db/altas.php" method="POST" enctype='multipart/form-data'>
 
 			               	<span style="color:red">*</span> NICK <br>
-											<input  class="form_texto"  type="text" name="nick" id="nick" placeholder="User name" required onblur="rellena_nick();">
+											<input  class="form_texto"  type="text" name="nick" id="nick" placeholder="User name" required onblur="rellena_nick()"  oninput="check_nick()" >
 											<div class="div_form_error" id="message_nick"></div>
 
+
 			               	<span style="color:red">*</span> EMAIL <br>
-											<input  class="form_texto"  type="email" name="email" id="email" placeholder="email"  required onblur="rellena_email();">
+											<input  class="form_texto"  type="email" name="email" id="email" placeholder="email"  required onblur="rellena_email();" oninput="check_email();">
 											<div class="div_form_error" id="message_email"></div>
 
 			             		<span style="color:red">*</span>   NAME <br>

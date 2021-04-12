@@ -2,19 +2,50 @@
 //VERIFICACION DE QUE LOS CAMPOS ESTAN RELLENADOS Y CON LOS PARAMETROS QUE QUIERO
 
 function rellena_nick(){
-		var nick = document.getElementById("nick").value;
 
-		if (nick == "") {
-				document.getElementById("message_nick").innerHTML = "Escribe tu nick!";
-			}else{
-					document.getElementById("message_nick").innerHTML = "";
-					return true;
-				}
+				var nick = document.getElementById("nick").value;
+				if (nick == "") {
+						document.getElementById("message_nick").innerHTML = "Escribe tu nick!";
+					}else{
+							document.getElementById("message_nick").innerHTML = "";
+							return true;
+					}
 }
+
+
+
+function check_nick() {
+		var resultat =  $.ajax({ //ajax
+				url: "../db/checkuser.php", //l'arxiu php que valida
+				data: {nick:$("#nick").val()}, //el nom del campo post con el valor campo html
+				type: "POST", //tipus d'enviament (POST)
+
+				success: function(resposta){ //si es correcte la resposta de checkuser.php
+
+						if (resposta == 0){ //si checkuser.php diu: 0 ES QUE NO HAY OTRO nick igual en tabla
+
+									$("#message_nick").html(""); //limpio mensaje
+
+						}else if(resposta == 1){	// si checkuser.php diu: 1 encontro un nick igual en tabla ya
+
+									$("#message_nick").html("usuari " + $("#nick").val() + " no disponible"); //mostrem missatge
+									document.getElementById("nick").value="";
+						}
+				},
+
+				error:function (){
+		      	$("#div_error").html("Ocurrio algo en la conexion a datos"); //
+				}
+
+	});
+  console.log(resultat); //Muestro el objeto resultante
+  return resultat;
+}
+
+
 
 function rellena_email(){
 		var email = document.getElementById("email").value;
-
 
 		if (email == "") {
 				document.getElementById("message_email").innerHTML = "Escribe tu email !";
@@ -32,6 +63,34 @@ function rellena_email(){
 					 }
 				}
 }
+
+
+function check_email() {
+		var resultat =  $.ajax({ //ajax
+		url: "../db/checkemail.php", //l'arxiu php que valida
+		data: {email:$("#email").val()}, //el nom de l'usuari
+		type: "POST", //tipus d'enviament (POST)
+
+		success: function(resposta){ //si es correcte la resposta de checkuser.php
+			if (resposta == 0){ //si checkuser.php diu: 0 ES QUE NO HAY OTRO nick igual en tabla
+
+				$("#message_email").html(""); //limpio missatge
+
+			}else if (resposta == 1){	// si checkuser.php diu: 1 encontro un nick igual en tabla ya
+
+				$("#message_email").html("email " + $("#email").val() + " no esta disponible"); //mostrem missatge
+				document.getElementById("email").value="";
+			}
+		},
+		error:function (){
+      	$("#div_error").html("Ocurrio algo en la conexion a datos"); //
+		}
+	});
+  console.log(resultat); //Muestro el objeto resultante
+  return resultat;
+}
+
+
 
 function validar_email( email )
 {

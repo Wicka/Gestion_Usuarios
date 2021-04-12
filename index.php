@@ -41,8 +41,7 @@
 						<ul>
 								<li> <a href="formularios/form_altas.php">Registrarse</a> </li>
 								<li> <a href="vistas/perfil_usuario.php">Perfil</a> </li>
-								<li> <a href="formularios/form_editar.php">Editar Usuario</a> </li>
-								<li> <a href="formularios/form_eliminar.php">Eliminar Usuario</a> </li>
+						
 						</ul>
 				</nav>
 

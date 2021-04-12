@@ -22,4 +22,8 @@
       header("Location: ../vistas/perfil_usuario.php");
 
   }
+
+
+
+
  ?>
