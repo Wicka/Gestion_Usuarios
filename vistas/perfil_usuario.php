@@ -52,7 +52,7 @@
  				<meta name="author" content="Ester Mesa">
 
  				<!-- Enllaç a l'arxiu CSS Extern -->
- 				<link rel="stylesheet" href="../css/style.css" type="text/css"/>
+ 				<link rel="stylesheet" href="../css/vistas.css" type="text/css"/>
 
  				<!-- google font -->
  				<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -70,8 +70,8 @@
 
               <div   class="div_menu" >
                     <ul class="nav">
-                      <li> <a href="#"> Editar</a></li>
-                      <li> <a href="#"> Eliminar</a></li>
+                      <li> <a href="../formularios/form_editar.php"> Editar</a></li>
+                      <li> <a href="../formularios/form_eliminar.pnp"> Eliminar</a></li>
                       <li> <a href="../sesiones/destroy_session.php"> Logout</a></li>
 
                       </ul>

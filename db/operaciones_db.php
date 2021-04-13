@@ -18,8 +18,28 @@
 
       $conn->query($_QUERY);
 
+  //    header("Location: ../vistas/perfil_usuario.php");
 
-      header("Location: ../vistas/perfil_usuario.php");
+  }
+
+  function status_user($_nick, $conn){
+    $_QUERY ="SELECT `id_estado` FROM `users` WHERE  `nick`= '$_nick'";
+
+    $_status= $conn->query($_QUERY);
+
+    echo "<pre>";
+    print_r($_status);
+    echo "</pre>";
+
+    if($_status->num_rows > 0){
+        $estado = $_status->fetch_assoc();
+
+    }else{
+      echo "<br>No Existe este usuario";
+      $estado=-1;
+    }
+
+    return $estado;
 
   }
 

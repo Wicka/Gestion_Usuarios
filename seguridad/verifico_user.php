@@ -51,13 +51,38 @@
                             echo "<hr>YA VERE A DONDE TE ENVIO .... SERA TU PAGINA DE PERFIL<hr>";
 
                             Crear_Usuario_Sesion($_nick);
-
-
+                            session_start();
                             $conn = Connect_BBDD();
                             actualizar_Conexion($_nick,$conn);
 
-                            
+
+                            //COMPROBAR SI ESTA ACTIVO
+                            $conn = Connect_BBDD();
+                            $_status_user = status_user($_nick,$conn);
+
+                      /*      echo "Activo :<hr>";
+                            echo "<pre>";
+                            print_r($_status_user);
+                            echo "</pre>";
+
+                            echo "estado ".$_status_user['id_estado'];
+                            */
                             $conn->close();
+
+                            if($_status_user['id_estado'] == 1){
+                                // usuario activo...
+                                header ("Location: ../vistas/perfil_usuario.php");
+                            }else{
+                                $_SESSION['error_code']=$_status_user['id_estado'];
+                                header ("Location: ../errores/errores_usuarios.php");
+                            }
+                          // '0': usuario eliminado temporalmente...
+                          // '1': usuario activo...
+                          // '2': usuario baneado...
+                          // '3': usuario pendiente...
+                          // '4': usuario inactivo...
+
+
 
                         }else{
                             echo 'Contraseña erronea !';

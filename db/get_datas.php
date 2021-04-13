@@ -40,6 +40,13 @@
               echo "<br>No Existe este usuario";
               $_user=-1;
             }
+/*          echo "<pre>";
+            print_r($_user);
+            echo "</pre>";
+*/
+            $_Date = explode (" ", $_user['birth_date']);
+
+            $_user['birth_date']=  $_Date[0];
 
             $conn->close();
             return $_user;

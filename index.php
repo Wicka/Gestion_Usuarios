@@ -34,17 +34,7 @@
 				<header>
 
 				</header>
-
-				<!--MENU NAVEGACION-->
-				<label> <h2>Menu provisional</h2> </label>
-				<nav>
-						<ul>
-								<li> <a href="formularios/form_altas.php">Registrarse</a> </li>
-								<li> <a href="vistas/perfil_usuario.php">Perfil</a> </li>
-						
-						</ul>
-				</nav>
-
+			
 				<section class ="contenedor">
 
 							<div id="div_login" class="division_vertical">
