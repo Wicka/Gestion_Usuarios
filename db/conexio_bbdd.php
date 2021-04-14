@@ -24,6 +24,7 @@ function Connect_BBDD(){
       // COMPROVACIO CONEXIO
       if ($conn->connect_error) {
           echo "Fallada en la connexió: ".$conn->connect_error;
+          header("Location:..");
           die();
       }else{
           //echo "Conexio a BBDD ok <br><hr><br>";

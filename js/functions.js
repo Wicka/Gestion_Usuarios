@@ -1,6 +1,9 @@
 
 //VERIFICACION DE QUE LOS CAMPOS ESTAN RELLENADOS Y CON LOS PARAMETROS QUE QUIERO
 
+	//************************LOGIN*****************/
+	//******FUNCIONES USADAS EN INDEX Y EN ALTAS****/
+	//**********************************************/
 function rellena_nick(){
 
 				var nick = document.getElementById("nick").value;
@@ -13,6 +16,29 @@ function rellena_nick(){
 }
 
 
+function rellena_login_password(){
+		var pwd = document.getElementById("pwd").value;
+		if (pwd == "") {
+				document.getElementById("message_pwd").innerHTML = "Escribe la Contraseña!";
+				}else{
+							document.getElementById("message_pwd").innerHTML = "";
+							return true
+			}
+}
+
+function valida_login(){
+	if (rellena_nick() && rellena_password()){
+		//	AMBOS CAMPOS RELLENADOS SIN ERRORES
+		return true;
+	}else{
+		//	CAMPOS SIN RELLENAR
+		return false;
+	}
+}
+
+	//************************LOGIN*****************/
+	//******FUNCIONES USADAS PARA ALTAS Y EDITAR ****/
+	//**********************************************/
 
 function check_nick() {
 		var resultat =  $.ajax({ //ajax
@@ -239,17 +265,6 @@ function rellena_password_2(){
 
 function valida_form(){
 	if (rellena_nick()&& rellena_email() && rellena_name() && rellena_surname_1() && rellena_birth() && rellena_password() && rellena_password_2()){
-		//	AMBOS CAMPOS RELLENADOS SIN ERRORES
-		return true;
-	}else{
-		//	CAMPOS SIN RELLENAR
-		return false;
-	}
-}
-
-
-function valida_login(){
-	if (rellena_nick() && rellena_password()){
 		//	AMBOS CAMPOS RELLENADOS SIN ERRORES
 		return true;
 	}else{

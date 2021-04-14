@@ -23,7 +23,7 @@
 				<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
 				<!-- Enllaç a Javascript Extern -->
-				<script  type="text/javascript" src="js/functions_login.js"></script>
+				<script  type="text/javascript" src="js/functions.js"></script>
 
 				<title>Gestion Usuario</title>
 
@@ -34,7 +34,7 @@
 				<header>
 
 				</header>
-			
+
 				<section class ="contenedor">
 
 							<div id="div_login" class="division_vertical">
@@ -48,7 +48,7 @@
 												</div>
 
 												<div class="div_form_field">
-														<input  class="form_texto"  type="password" name="pwd" id="pwd" placeholder="User password" onblur="rellena_password();">
+														<input  class="form_texto"  type="password" name="pwd" id="pwd" placeholder="User password" onblur="rellena_login_password();">
 														<div class="div_form_error" id="message_pwd"></div>
 												</div>
 

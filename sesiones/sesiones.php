@@ -5,8 +5,8 @@
 
           if ($_nick == null){
             echo "ESTOY EN CREAR SESION SIN NICK<hr>";
-          //    header ("Location: ../index.php");
-        //      die();
+              header ("Location: ../index.php");
+              die();
 
           }else {
 
@@ -22,27 +22,6 @@
             }
     }
 
-/*
-
-    function Usuario_en_uso($_nick, $_libre){
-      echo "sesion 01<hr>";
-
-      if ($_libre == 1){
-
-        echo "sesion 02<hr>";
-        echo "nick sesion en suso ";
-
-        $_SESSION['en_uso'] = $_nick;
-        echo "session .:".$_SESSION['en_uso']."<hr>";
-
-      }else {
-        echo "sesion 03<hr>";
-        echo "destruyo variable nick sesion en suso ";
-        unset($_SESSION['en_uso']);
-      }
-
-    }
-*/
 
     function Destruir_Sesion(){
 

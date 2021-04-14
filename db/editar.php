@@ -3,13 +3,15 @@
     include ("../seguridad/funciones_seguridad.php");
     include ("../sesiones/sesiones.php");
 
+    echo "EDICCION <hr>";
+/*
     if($_POST!=null){
 
-        if($_POST['nick']!=null and $_POST['pwd']!=null and $_POST['name']!=null and $_POST['surname_1']!=null and $_POST['birth']!=null and $_POST['email']!=null){
+        if($_POST['pwd']!=null and $_POST['name']!=null and $_POST['surname_1']!=null and $_POST['birth']!=null and $_POST['email']!=null){
 
           $conn=Connect_BBDD();
 
-          $_nick = filter_var(strtolower(trim($_POST['nick'])), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
+          $_nick = filter_var(strtolower(trim($_SESSION['nick'])), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
           $_pwd =  filter_var(trim($_POST['pwd']), FILTER_SANITIZE_STRING);
           $_name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
           $_surname_1 = filter_var($_POST['surname_1'], FILTER_SANITIZE_STRING);
@@ -53,7 +55,7 @@
              echo "ERROR EN LA SUBIDA <hr>";
              echo $_FILES['userfile']['error']."<hr>";
 
-             header("Location: ../form_altas.php");
+      //       header("Location: ../form_altas.php");
        }else {
 
            echo "FICHERO SUBIDO CON EXITO<hr>";
@@ -78,25 +80,25 @@
           $conn->close();
 
           echo "<hr>TE ENVIO A .....PERFIL si todo bien NO TE MOSTRARE ESTE MSJ<hr>";
-          header("Location: ../vistas/perfil_usuario.php");
+    //      header("Location: ../vistas/perfil_usuario.php");
           die();
           }
 
 
         }else{
           echo "CAMPOS DEL POST ALGUNO VACIO<hr>";
-          header("Location: ../formularios/form_altas.php");
+      //    header("Location: ../formularios/form_altas.php");
           die();
 
         }
 
     }else{
       echo "NADA POR POST PARA ALTA USUARIO .";
-      header("Location: ..");
+  //    header("Location: ..");
       die();
     }
 
-
+*/
 
 
     function verifica_nick($_nick,$conn ){

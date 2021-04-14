@@ -7,22 +7,6 @@
 		header("Location: ../vistas/perfil_usuario.php");
 	}
 
-
-/*
-
-		if (isset($_SESSION['en_uso'])){
-
-				echo "06<hr>";
-				echo "Ese Nick no esta disponible";
-				echo $_SESSION['en_uso'];
-			}else{
-
-				echo "07<hr>";
-				echo "NICK LIBRE<hr>";
-
-			}
-*/
-
 ?>
 
 ﻿<doctype html>

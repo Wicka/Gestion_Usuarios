@@ -1,12 +1,13 @@
 <?php
 
-    function get_pwd_by_nick($_nick, $conn ){
+//**RECUPERO PWD DEL USUARIO NICK
+//** SI NO EXISTE USUARIO ENVIO -1
 
+    function get_pwd_by_nick($_nick, $conn ){
 
         $tabla="users";
 
         $Query = "SELECT `pwd` FROM `users` WHERE `nick` = '$_nick'" ;
-
 
         $user = $conn->query($Query);
 
@@ -23,7 +24,31 @@
     }
 
 
-        function get_user_by_nick($_nick, $conn ){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      function get_user_by_nick($_nick, $conn ){
 
 
             $tabla="users";

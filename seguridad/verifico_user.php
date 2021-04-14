@@ -14,90 +14,71 @@
           if($_POST != null){
 
               if($_POST['nick']!=null){
-
                   $_nick = filter_var($_POST["nick"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
               }else{
                   $_nick = "";
               }
 
-              //PROCESO POST PWD
               if($_POST['pwd']!=null){
-                  //SANEO ENTRADA CON FILTROS SANIZER
                   $_pwd = filter_var($_POST["pwd"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
               }else{
                   $_pwd = "";
               }
 
+              $conn = Connect_BBDD();
 
-                  $conn = Connect_BBDD();
-                  //CONEXION BASE DE DATOS
+              $_Existe = get_pwd_by_nick($_nick, $conn);
+              if($_Existe==-1){
+                    echo "<hr>No hay usuario con este nombre<hr>";
+                    echo "<hr>TE ENVIO A INDEX NO TE MOSTRARE ESTE MSJ<hr>";
+                    header("Location: ..");
+                    die();
+              }else{
+                    $_pwd_hash =  $_Existe['pwd'];
 
+                    $_login = verifica_Pwd($_pwd, $_pwd_hash);
+                    if ($_login){
+                        echo '¡La contraseña es válida!';
+                        echo "<hr>YA VERE A DONDE TE ENVIO .... SERA TU PAGINA DE PERFIL<hr>";
 
-                  $_Existe = get_pwd_by_nick($_nick, $conn);
+                        Crear_Usuario_Sesion($_nick);
+                        session_start();
 
-                  if($_Existe==-1){
-                        echo "<hr>No hay usuario con este nombre<hr>";
-                        echo "<hr>TE ENVIO A INDEX NO TE MOSTRARE ESTE MSJ<hr>";
-                        header("Location: ..");
-                        die();
-                  }else{
+                        //ACTUALIZAR FECHA CONEXION
+                        $conn = Connect_BBDD();
+                        actualizar_Conexion($_nick,$conn);
 
-                        $_pwd_hash =  $_Existe['pwd'];
+                        //COMPROBAR SI ESTA ACTIVO
+                        $conn = Connect_BBDD();
+                        $_status_user = status_user($_nick,$conn);
 
-                        $_login = verifica_Pwd($_pwd, $_pwd_hash);
+                        $conn->close();
 
-                        if ($_login){
-                            echo '¡La contraseña es válida!';
-                            echo "<hr>YA VERE A DONDE TE ENVIO .... SERA TU PAGINA DE PERFIL<hr>";
-
-                            Crear_Usuario_Sesion($_nick);
-                            session_start();
-                            $conn = Connect_BBDD();
-                            actualizar_Conexion($_nick,$conn);
-
-
-                            //COMPROBAR SI ESTA ACTIVO
-                            $conn = Connect_BBDD();
-                            $_status_user = status_user($_nick,$conn);
-
-                      /*      echo "Activo :<hr>";
-                            echo "<pre>";
-                            print_r($_status_user);
-                            echo "</pre>";
-
-                            echo "estado ".$_status_user['id_estado'];
-                            */
-                            $conn->close();
-
-                            if($_status_user['id_estado'] == 1){
-                                // usuario activo...
-                                header ("Location: ../vistas/perfil_usuario.php");
-                            }else{
-                                $_SESSION['error_code']=$_status_user['id_estado'];
-                                header ("Location: ../errores/errores_usuarios.php");
-                            }
+                        if($_status_user['id_estado'] == 1){
+                            // usuario activo...
+                            header ("Location: ../vistas/perfil_usuario.php");
+                        }else{
+                            $_SESSION['error_code']=$_status_user['id_estado'];
+                            header ("Location: ../vistas/status_usuarios.php");
+                        }
                           // '0': usuario eliminado temporalmente...
                           // '1': usuario activo...
                           // '2': usuario baneado...
                           // '3': usuario pendiente...
                           // '4': usuario inactivo...
 
-
-
-                        }else{
-                            echo 'Contraseña erronea !';
-                            echo "<hr>TE ENVIO A INDEX PQ NO ESA PWD NO ES CORRECTA TE MOSTRARE ESTE MSJ<hr>";
-                            header("Location: ..");
-                            die();
-                        }
-                  }
+                    }else{
+                        echo 'Contraseña erronea !';
+                        echo "<hr>TE ENVIO A INDEX PQ NO ESA PWD NO ES CORRECTA TE MOSTRARE ESTE MSJ<hr>";
+                        header("Location: ..");
+                        die();
+                    }
+              }
 
           }else{
                 echo "NO RECIBO NADA DE FORMULARIO POST <hr>";
                 header("Location: ..");
                 die();
           }
-
       }
-
 ?>

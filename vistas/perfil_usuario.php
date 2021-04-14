@@ -3,41 +3,20 @@
     include ("../db/conexio_bbdd.php");
     include ("../db/get_datas.php");
 
-
-  //  echo "HOLA PERFIL USUARIO <hr>";
-
-
     if(isset($_SESSION['user'])){
-
-      //  echo " Eres : ".$_SESSION['user'];
 
         $conn  = Connect_BBDD();
         $_user = get_user_by_nick($_SESSION['user'], $conn );
-/*
-        echo "<pre>";
-        print_r($_user);
-        echo "</pre>";
-        echo "<hr><hr>";
-
-
-        echo "<hr><a href='../sesiones/destroy_session.php'>Cerrar Sesion</a>";
-
-        echo "<hr><hr>";
-        echo "S_foto : <br>";
-*/
 
         if(file_exists("../img/users/".$_user['id'].".png")){
               $_foto = "../img/users/".$_user['id'].".png";
             }else{
               $_foto = "../img/users/0.png";
           }
-  //echo "-".$_foto;
-
     }else{
         header("Location: ../sesiones/destroy_session.php");
         die();
     }
-
  ?>
 
 
@@ -71,14 +50,11 @@
               <div   class="div_menu" >
                     <ul class="nav">
                       <li> <a href="../formularios/form_editar.php"> Editar</a></li>
-                      <li> <a href="../formularios/form_eliminar.pnp"> Eliminar</a></li>
+                      <li> <a href="../formularios/form_eliminar.php"> Eliminar</a></li>
                       <li> <a href="../sesiones/destroy_session.php"> Logout</a></li>
 
                       </ul>
               </div>
-
-
-
  				</header>
 
 
@@ -104,12 +80,6 @@
                   echo "<hr>";
                   echo "Estado : ".$_user['id_estado'];
 
-
-                  /*    echo "<pre>";
-                      print_r($_user);
-                      echo "</pre>";
-                      echo "<hr><hr>";
-                  */
                     ?>
                   </p>
 

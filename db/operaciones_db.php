@@ -1,6 +1,6 @@
 <?php
 
-
+//ACTUALIZA FECHA LAST UPDATE EN TABLA USERS
   function actualizar_Conexion($_nick, $conn){
     echo "dentro actualizar conexion<hr>";
       $_now = getdate();

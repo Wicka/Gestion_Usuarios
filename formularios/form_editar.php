@@ -15,7 +15,6 @@
 ?>
 
 
-
 ﻿<doctype html>
 <html lang="es">
 
@@ -28,7 +27,7 @@
 
 				<!-- Enllaç a l'arxiu CSS Extern -->
         <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-				<link rel="stylesheet" href="../css/style_forms.css" type="text/css"/>
+				<link rel="stylesheet" href="../css/style_forms_editar.css" type="text/css"/>
 
 				<!-- google font -->
 				<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -52,12 +51,12 @@
                   <ul class="nav">
                     <li> <a href="../index.php">Inicio</a> </li>
                     </ul>
-              </div>  
+              </div>
         </div>
 
       </header>
 
-      <form onsubmit="return valida_form();" class="login" action="../db/altas.php" method="POST" enctype='multipart/form-data'>
+      <form onsubmit="return valida_form();" class="login" action="../db/editar.php" method="POST" enctype='multipart/form-data'>
 
 
 				    <section class ="contenedor">
@@ -93,15 +92,6 @@
 
       						<div id="div_alta" class="division_vertical">
 
-
-      <!--
-      								<form onsubmit="return valida_form();" class="login" action="../db/altas.php" method="POST" enctype='multipart/form-data'>
-      -->
-      <!--
-      			               	<span style="color:red">*</span> NICK <br>
-      											<input  class="form_texto"  type="text" name="nick" id="nick" placeholder="User name" required onblur="rellena_nick()"  oninput="check_nick()" >
-      											<div class="div_form_error" id="message_nick"></div>
-      -->
 
       			               	<span style="color:red">*</span> EMAIL <br>
       											<input  class="form_texto"  type="email" name="email" id="email" placeholder="email"  required
@@ -145,9 +135,6 @@
       											<hr>
       											<div class="div_button"><input id="button" type="submit" name="Aceptar" value="ACEPTAR"></div>
 
-      <!--
-      								</form>
-      -->
 
       							</div>
 
