@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-04-2021 a las 19:09:27
+-- Tiempo de generación: 15-04-2021 a las 11:10:54
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.4.15
 
@@ -60,22 +60,23 @@ CREATE TABLE `users` (
   `pwd` varchar(255) NOT NULL,
   `create_date` datetime NOT NULL DEFAULT current_timestamp(),
   `last_connection` datetime NOT NULL DEFAULT current_timestamp(),
-  `id_estado` int(2) NOT NULL
+  `id_estado` int(2) NOT NULL,
+  `clasificacion` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `nick`, `email`, `name`, `surname_01`, `surname_02`, `birth_date`, `pwd`, `create_date`, `last_connection`, `id_estado`) VALUES
-(1, 'alvin', 'alvin@alvin.com', 'Juan', 'Marcea', 'Tomas', '1969-04-01 00:00:00', '$2y$10$6ofSjhYiSGon/PZaNmzK/e0MKrPHYuTBNoeewRNCkOm.QouryyWfi', '2021-04-13 09:05:37', '2021-04-13 13:09:24', 1),
-(2, 'wicka', 'wicka@wicka.es', 'Ester', 'Kalimantan', 'Derawan', '1971-12-16 00:00:00', '$2y$10$kW6VBgeIVqRLsM7nLP.i8.dha2np5uKkDENG7KzzF0Z/JufwNHB6i', '2021-04-13 09:23:57', '2021-04-13 18:31:08', 4),
-(3, 'varum', 'varum@varum.com', 'Elisabeth', 'Luna', 'Potter', '2011-12-27 00:00:00', '$2y$10$Ig2XIXOOl6Mtd7tNbsKrI.LpaiJrf9TM2rIrCotYyP3grEy4t7r8W', '2021-04-13 09:35:24', '2021-04-13 17:21:48', 1),
-(4, 'gollum', 'gollum@gollum.com', 'Gollum', 'Frodo', 'Bolson', '2001-02-01 00:00:00', '$2y$10$2pbuBLorC4LQb4L5B9thf.gsMk82doiraIZXOI7WzcflFDi6PXuuW', '2021-04-13 09:37:33', '2021-04-13 19:07:00', 0),
-(5, 'doreimon', 'doreimon@doreimon.com', 'Pepe', 'Pepito', 'Palotes', '1979-12-11 00:00:00', '$2y$10$HokQyTnUttTPR.NifRCGwOgpsfeeSXafs7r13/EAl4/U5eYh3wpe6', '2021-04-13 09:39:16', '2021-04-13 09:39:16', 1),
-(6, 'fish', 'fish@fish.com', 'Mero', 'Verde', 'Caribe', '2005-01-01 00:00:00', '$2y$10$4eeqGXNi55DgyyWw52Pxo.Bx0Er5lygWMzDbBnsuA8lsi5anGCrAy', '2021-04-13 09:52:31', '2021-04-13 09:52:31', 2),
-(7, 'fangoria', 'fango@fango.es', 'Alaska', 'Fanguita', 'Rodriguez', '1982-02-08 00:00:00', '$2y$10$xPV4DcRutNEHW2Fuq3CLNOjH7OBkce7x.x9KFFaAgar9Im.CJy4KK', '2021-04-13 10:11:59', '2021-04-13 10:11:59', 3),
-(8, 'dominium', 'dominium@dominium.com', 'Luke', 'Sky', 'Walker', '1962-11-25 00:00:00', '$2y$10$tk0B9fynQMIWHVSXcrBCru7BnwfkVSa2yqxNWVxDvRfHob1fYEfpG', '2021-04-13 10:16:44', '2021-04-13 10:16:44', 1);
+INSERT INTO `users` (`id`, `nick`, `email`, `name`, `surname_01`, `surname_02`, `birth_date`, `pwd`, `create_date`, `last_connection`, `id_estado`, `clasificacion`) VALUES
+(1, 'alvin', 'alvin@alvin.com', 'Juan', 'Marcea', 'Tomas', '1969-04-01 00:00:00', '$2y$10$6ofSjhYiSGon/PZaNmzK/e0MKrPHYuTBNoeewRNCkOm.QouryyWfi', '2021-04-13 09:05:37', '2021-04-15 10:56:50', 1, 0),
+(2, 'wicka', 'wicka@wicka.es', 'Ester', 'Kalimantan', 'Derawan', '1971-12-16 00:00:00', '$2y$10$kW6VBgeIVqRLsM7nLP.i8.dha2np5uKkDENG7KzzF0Z/JufwNHB6i', '2021-04-13 09:23:57', '2021-04-15 10:57:47', 4, 0),
+(3, 'varum', 'varum@varum.com', 'Elisabeth', 'Luna', 'Potter', '2011-12-27 00:00:00', '$2y$10$Ig2XIXOOl6Mtd7tNbsKrI.LpaiJrf9TM2rIrCotYyP3grEy4t7r8W', '2021-04-13 09:35:24', '2021-04-13 17:21:48', 1, 0),
+(4, 'gollum', 'gollum@gollum.com', 'Gollum', 'Frodo', 'Bolson', '2001-02-01 00:00:00', '$2y$10$2pbuBLorC4LQb4L5B9thf.gsMk82doiraIZXOI7WzcflFDi6PXuuW', '2021-04-13 09:37:33', '2021-04-13 19:07:00', 0, 0),
+(5, 'doreimon', 'doreimon@doreimon.com', 'Pepe', 'Pepito', 'Palotes', '1979-12-11 00:00:00', '$2y$10$HokQyTnUttTPR.NifRCGwOgpsfeeSXafs7r13/EAl4/U5eYh3wpe6', '2021-04-13 09:39:16', '2021-04-13 09:39:16', 1, 0),
+(6, 'fish', 'fish@fish.com', 'Mero', 'Verde', 'Caribe', '2005-01-01 00:00:00', '$2y$10$4eeqGXNi55DgyyWw52Pxo.Bx0Er5lygWMzDbBnsuA8lsi5anGCrAy', '2021-04-13 09:52:31', '2021-04-13 09:52:31', 2, 0),
+(7, 'fangoria', 'fango@fango.es', 'Alaska', 'Fanguita', 'Rodriguez', '1982-02-08 00:00:00', '$2y$10$xPV4DcRutNEHW2Fuq3CLNOjH7OBkce7x.x9KFFaAgar9Im.CJy4KK', '2021-04-13 10:11:59', '2021-04-13 10:11:59', 3, 0),
+(8, 'dominium', 'dominium@dominium.com', 'Luke', 'Sky', 'Walker', '1962-11-25 00:00:00', '$2y$10$tk0B9fynQMIWHVSXcrBCru7BnwfkVSa2yqxNWVxDvRfHob1fYEfpG', '2021-04-13 10:16:44', '2021-04-13 10:16:44', 1, 0);
 
 --
 -- Índices para tablas volcadas
