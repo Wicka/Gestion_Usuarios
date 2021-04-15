@@ -79,6 +79,8 @@
                   echo "Ultima conexion : ".$_user['last_connection'];
                   echo "<hr>";
                   echo "Estado : ".$_user['id_estado'];
+                  echo "<hr>";
+                  echo "Clasificación : ".$_user['clasificacion'];
 
                     ?>
                   </p>

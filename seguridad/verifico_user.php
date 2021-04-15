@@ -54,11 +54,13 @@
 
                         $conn->close();
 
-                        if($_status_user['id_estado'] == 1){
+                        $_SESSION['code_status']=$_status_user['id_estado'];
+
+                        if  ($_SESSION['code_status'] == 1){
                             // usuario activo...
                             header ("Location: ../vistas/perfil_usuario.php");
                         }else{
-                            $_SESSION['error_code']=$_status_user['id_estado'];
+                          //  $_SESSION['code_status']=$_status_user['id_estado'];
                             header ("Location: ../vistas/status_usuarios.php");
                         }
                           // '0': usuario eliminado temporalmente...

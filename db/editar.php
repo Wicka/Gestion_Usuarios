@@ -3,12 +3,13 @@
     include ("../seguridad/funciones_seguridad.php");
     include ("../sesiones/sesiones.php");
 
-    echo "EDICCION <hr>";
-/*
-    if($_POST!=null){
+echo "EDICCION <hr>";
 
+    if($_POST!=null){
+        echo "01<hr>";
         if($_POST['pwd']!=null and $_POST['name']!=null and $_POST['surname_1']!=null and $_POST['birth']!=null and $_POST['email']!=null){
 
+echo "02<hr>";
           $conn=Connect_BBDD();
 
           $_nick = filter_var(strtolower(trim($_SESSION['nick'])), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
@@ -19,6 +20,7 @@
           $_email = filter_var(trim($_POST['email']), FILTER_SANITIZE_STRING);
           $_birth =  filter_var(trim($_POST['birth']), FILTER_SANITIZE_NUMBER_INT);
 
+echo "03<hr>";
           $_pwd_codificada = codifica_PWD($_pwd);
 
           //QUERY ALTA POR DEFECTO STATUS 1 ACTIVO
@@ -98,7 +100,7 @@
       die();
     }
 
-*/
+
 
 
     function verifica_nick($_nick,$conn ){

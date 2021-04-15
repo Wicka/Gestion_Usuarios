@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if (!isset($_SESSION['user']) or $_SESSION['code_status']==1){
+        header("location: ..");
+    }
  ?>
 
 
@@ -36,11 +40,11 @@
 
 
                         <?php
-                        if (isset($_SESSION['error_code'])){
+                        if (isset($_SESSION['code_status'])){
 
                             echo "USUARIO : ".$_SESSION['user']."<hr>";
 
-                            switch ($_SESSION['error_code']) {
+                            switch ($_SESSION['code_status']) {
                               case '0':
                                 // ELIMINADO TEMPORALMENTE...
                                 echo "ELIMINADO TEMPORALMENTE...";
@@ -69,7 +73,8 @@
                                 break;
                             }
 
-                            session_destroy();
+                        //    session_destroy();
+                        //    unset($_SESSION['code_status']);
                             echo "Sesion cerrada<hr>";
                         }
 
