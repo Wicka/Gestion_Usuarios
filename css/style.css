@@ -1,23 +1,83 @@
 
-
 body{
-
-  background: url("../img/fondo/fondo_03.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   color: white;
   font-size: 30px;
+}
 
+/*FONDOS DE BODY*/
+
+
+#altas{
+  background: url("../img/fondo/fondo_01.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+#index{
+    background: url("../img/fondo/fondo_03.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+#eliminar{
+    background: url("../img/fondo/fondo_09.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+#msj_eliminar{
+    background: url("../img/fondo/fondo_11.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+#editar{
+    background: url("../img/fondo/fondo_04.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+#status{
+  background: url("../img/fondo/fondo_10.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+#perfil{
+  background: url("../img/fondo/fondo_05.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+#politica{
+    background: url("../img/fondo/fondo_06.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+body{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  font-size: 30px;
 }
 
 section, div{
   padding: 15px;
 }
-
-
-
 
 .contenedor{
   border: solid 1px black;
@@ -27,7 +87,24 @@ section, div{
   justify-content:center;
   margin-left: auto;
   margin-right: auto;
+}
 
+
+.contenedor .division_vertical{
+  width: 100%;
+  text-align: left;
+  background-color: rgba(1,2,1,0.5);
+  box-shadow: 2px 2px 10px #666;
+}
+
+#msj_eliminar{
+  text-align: center;
+}
+
+.form_texto, .form_pwd, .form_date{
+    width: 80%;
+    text-align: center;
+    font-size: 15px;
 }
 
 
@@ -71,20 +148,11 @@ section, div{
   }
 
 
-.contenedor .division_vertical{
-
-  width: 49%;
-  text-align: center;
-
-}
 
 #detalle_user{
   text-align:left;
 }
-.form_texto {
-    text-align: center;
-    font-size: 15px;
-}
+
 
 .contenedor .div_button{
     text-align: center;
@@ -105,6 +173,29 @@ section, div{
 
 }
 
+
+.div_pie{
+  text-align: left;
+}
+
+.contenedor .div_button{
+    text-align: center;
+}
+
+
+.eliminar_op{
+  font-size: 14px;
+  text-align: left;
+}
+
+.div_cancelar{
+/*  border: solid 1px white;*/
+  text-align: center;
+}
+#cancelar_botones{
+  color: white;
+
+}
 
 /*******************************/
 /*******************************/
@@ -149,6 +240,14 @@ section, div{
 /*  box-shadow: 2px 2px 5px #999;*/
 
 }
+
+
+
+footer{
+  text-align: right;
+  margin-right: 50px;
+}
+
 /*Media Queries*/
 /* Large desktops and laptops */
 @media (min-width: 1200px) {

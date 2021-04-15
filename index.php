@@ -29,7 +29,7 @@
 
 		</head>
 
-		<body>
+		<body id="index">
 
 				<header>
 
@@ -43,7 +43,13 @@
 								<form onsubmit="return valida_login();" class="login" action="seguridad/verifico_user.php" method="POST">
 
 												<div class="div_form_field">
-														<input  class="form_texto"  type="text" name="nick" id="nick" placeholder="User name" onblur="rellena_nick();">
+														<input  class="form_texto"  type="text" name="nick" id="nick"
+																			value ='<?php
+																									if(isset($_COOKIE['usuario'])){
+																									echo explode('-',$_COOKIE['usuario'])[0];
+																								}
+																			?>'
+																			placeholder="User name" onblur="rellena_nick();">
 														<div class="div_form_error" id="message_nick"></div>
 												</div>
 

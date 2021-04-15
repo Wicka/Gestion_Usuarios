@@ -21,7 +21,6 @@
 
 				<!-- Enllaç a l'arxiu CSS Extern -->
         <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-				<link rel="stylesheet" href="../css/style_forms.css" type="text/css"/>
 
 				<!-- google font -->
 				<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -36,7 +35,8 @@
 
 		</head>
 
-		<body>	<header>
+		<body id="altas">
+      <header>
 
         <div class="contenedor">
 
@@ -61,7 +61,7 @@
 									<hr>
 
 
-								<form onsubmit="return valida_form();" class="login" action="../db/altas.php" method="POST" enctype='multipart/form-data'>
+								<form onsubmit="return valida_form();" class="form" action="../db/altas.php" method="POST" enctype='multipart/form-data'>
 
 			               	<span style="color:red">*</span> NICK <br>
 											<input  class="form_texto"  type="text" name="nick" id="nick" placeholder="User name" required onblur="rellena_nick()"  oninput="check_nick()" >

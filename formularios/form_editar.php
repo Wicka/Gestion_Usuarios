@@ -27,9 +27,8 @@
 
 				<!-- Enllaç a l'arxiu CSS Extern -->
         <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-				<link rel="stylesheet" href="../css/style_forms_editar.css" type="text/css"/>
 
-				<!-- google font -->
+  			<!-- google font -->
 				<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
 				<!-- Enllaç a Javascript Extern -->
@@ -42,7 +41,7 @@
 
 		</head>
 
-		<body>
+		<body id="editar">
       <header>
 
         <div class="contenedor">
@@ -111,7 +110,7 @@
 
       			               	SURNAME_2 <br>
       			                <input  class="form_texto"  type="text" name="surname_2" id="surname_2" placeholder="surname_2"
-                            value='<?php echo $_user['surname_02'];?>'>>
+                            value='<?php echo $_user['surname_02'];?>'>
       			                <div class="div_form_error" id="message_surname_2"></div>
 
       			               	<span style="color:red">*</span> BIRTH DATE <br>

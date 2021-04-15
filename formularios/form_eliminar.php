@@ -27,7 +27,6 @@
 
 				<!-- Enllaç a l'arxiu CSS Extern -->
         <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-				<link rel="stylesheet" href="../css/style_forms_eliminar.css" type="text/css"/>
 
 				<!-- google font -->
 				<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -38,11 +37,11 @@
         <!--JQUERY -->
         <script type="text/javascript" src="../js/jquery-3.6.0.min.js" ></script>
 
-				<title>Edit User</title>
+				<title>Delete User</title>
 
 		</head>
 
-		<body>
+		<body id="eliminar">
       <header>
 
         <div class="contenedor">
@@ -61,7 +60,7 @@
 
 				    <section class ="contenedor">
 
-                <div class="division_vertical">
+                <div id="div_eliminar" class="division_vertical">
 
                       <hr><hr>
                       <?php
@@ -74,13 +73,28 @@
                             echo "<img src=$_foto alt='foto perfil'>";
 
                         ?>
-                        <h1>Perfil <?php echo $_SESSION['user'];?></h1><hr>
-                      <!--  <span style="color:red"> * Campos Obligatorios </span>-->
+                        <h1><?php echo $_SESSION['user'];?></h1><hr>
+                        <p><?php echo "Clasificación : ".$_user['clasificacion'];?></p>
+
+                        <span style="color:red"> SEGURO QUIERES ELIMINAR ?</span>
                         <hr>
 
-                        <!--	<input type='hidden' name='MAX_FILE_SIZE' value='100000'> <br> -->
-                      
-                        <br>  <br>
+                        <div class="eliminar_op">
+                              <input type="radio" id="permanecer" name="eliminar" value="0" >
+                              <label for="permanecer">Conservar datos para comunicaciones</label><br><hr>
+
+
+                            <input type="radio" id="inactivo" name="eliminar" value="4"  checked>
+                            <label for="permanecer">Desactivar Cuenta y mantener clasificación</label><br><hr>
+
+
+                            <input type="radio" id="eliminar" name="eliminar" value="-1" >
+                            <label for="eliminar"><span style="color:red">Eliminar todo y perder clasificación <br> * Se perderan todos los datos !!.</span></label><br><hr>
+
+                        </div>
+                        <div class="div_cancelar">
+                            <a id="cancelar_botones" href="../vistas/perfil_usuario.php">CANCELAR</a>
+                        </div>
                         <hr>
                 </div>
 
@@ -108,9 +122,8 @@
                         ?>
                       </p>
 
-      											<hr>
-      											<div class="div_button"><input id="button" type="submit" name="Aceptar" value="ACEPTAR"></div>
-
+      									<hr>
+      									<div class="div_button" ><input id="button" type="submit" name="Aceptar" value="ELIMINAR"></div>
 
       							</div>
 

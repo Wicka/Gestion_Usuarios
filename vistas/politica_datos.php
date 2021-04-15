@@ -23,7 +23,7 @@
 
 		</head>
 
-		<body>
+		<body id="politica">
 
 <div class="politica_datos">
 

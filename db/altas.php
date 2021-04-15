@@ -19,15 +19,30 @@
 
           $_pwd_codificada = codifica_PWD($_pwd);
 
+          echo "nick : ".$_nick."<hr>";
+          echo "pwd : ".$_pwd."<hr>";
+          echo "name : ".$_name."<hr>";
+          echo "surname_1 : ".$_surname_1."<hr>";
+          echo "surname_2 : ".$_surname_2."<hr>";
+          echo "email : ".$_email."<hr>";
+          echo "birth : ".$_birth."<hr>";
+          echo "pwd_codificada : ".$_pwd_codificada."<hr><hr><hr>";
+
           //QUERY ALTA POR DEFECTO STATUS 1 ACTIVO
-          $SQL_insert="INSERT INTO `users`
-          (`id`, `nick`, `email`, `name`, `surname_01`, `surname_02`,
-          `birth_date`, `pwd`, `create_date`, `last_connection`, `id_estado`)
-           VALUES (NULL, '$_nick', '$_email', '$_name', '$_surname_1', '$_surname_2', '$_birth',
-          '$_pwd_codificada', current_timestamp(), current_timestamp(), '1'); ";
+          $SQL_insert="INSERT INTO users
+          (`nick`, `email`, `name`, `surname_01`, `surname_02`,
+          `birth_date`, `pwd`, `create_date`, `last_connection`, `id_estado`,`clasificacion`)
+           VALUES ('$_nick', '$_email', '$_name', '$_surname_1', '$_surname_2', '$_birth',
+          '$_pwd_codificada', current_timestamp(), current_timestamp(), '1', '0'); ";
 
           //EJECUTO LA QUERY INSERTAR NUEVO USUARIO
           $res_Insert_QUERY = $conn->query($SQL_insert);
+
+
+
+          echo "<pre>";
+              print_r($res_Insert_QUERY);
+          echo "</pre>";
 
           //GUARDAR IMAGEN
           //BUSCO EL ID DEL NUEVO REGISTRO PARA ASIGNARLO A LA IMAGEN QUE ME SUBA EL USUARIO
@@ -48,12 +63,12 @@
 
 
 
-          if ($_FILES['userfile']['error']!=0){
+      if ($_FILES['userfile']['error']!=0){
 
              echo "ERROR EN LA SUBIDA <hr>";
              echo $_FILES['userfile']['error']."<hr>";
 
-             header("Location: ../form_altas.php");
+    //         header("Location: ../formularios/form_altas.php");
        }else {
 
            echo "FICHERO SUBIDO CON EXITO<hr>";
@@ -85,15 +100,15 @@
 
         }else{
           echo "CAMPOS DEL POST ALGUNO VACIO<hr>";
-          header("Location: ../formularios/form_altas.php");
-          die();
+    //      header("Location: ../formularios/form_altas.php");
+    //      die();
 
         }
 
     }else{
       echo "NADA POR POST PARA ALTA USUARIO .";
-      header("Location: ..");
-      die();
+  //    header("Location: ..");
+  //    die();
     }
 
 

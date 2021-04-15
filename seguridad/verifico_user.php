@@ -13,6 +13,7 @@
 
           if($_POST != null){
 
+
               if($_POST['nick']!=null){
                   $_nick = filter_var($_POST["nick"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
               }else{
@@ -42,7 +43,32 @@
                         echo "<hr>YA VERE A DONDE TE ENVIO .... SERA TU PAGINA DE PERFIL<hr>";
 
                         Crear_Usuario_Sesion($_nick);
-                        session_start();
+                      //  session_start();
+
+                        $caducitat=time()+(60*60);
+
+                        if(isset($_POST['mem_user'])){
+
+                            echo "<hr>ENTRO EN CHECK SELECCIONADO<hr>";
+                            //POR LO QUE GENERO LA COOKIE
+
+
+
+                            if(isset($_COOKIE['user'])){
+
+                              echo "Caducitat : ".$caducitat."<hr>";
+                              setcookie("usuario", $_SESSION["user"]."-".$caducitat ,time()+(60*60), "/");
+
+                            }
+                              else{
+                                setcookie("usuario", $_SESSION["user"]."-".$caducitat ,time()+(60*60), "/");
+                            }
+
+                         }else{
+
+                            echo "No check.!.";
+                            setcookie("usuario", $_SESSION["user"]."-".$caducitat ,time()-4000, "/");
+                        }
 
                         //ACTUALIZAR FECHA CONEXION
                         $conn = Connect_BBDD();
@@ -60,7 +86,7 @@
                             // usuario activo...
                             header ("Location: ../vistas/perfil_usuario.php");
                         }else{
-                          //  $_SESSION['code_status']=$_status_user['id_estado'];
+                            $_SESSION['code_status']=$_status_user['id_estado'];
                             header ("Location: ../vistas/status_usuarios.php");
                         }
                           // '0': usuario eliminado temporalmente...
