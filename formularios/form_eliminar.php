@@ -49,6 +49,8 @@
               <div   class="div_menu" >
                   <ul class="nav">
                     <li> <a href="../index.php">Inicio</a> </li>
+                    <li> <a href="../sesiones/destroy_session.php"> Logout</a></li>
+
                     </ul>
               </div>
         </div>
@@ -73,7 +75,7 @@
                             echo "<img src=$_foto alt='foto perfil'>";
 
                         ?>
-                        <h1><?php echo $_SESSION['user'];?></h1><hr>
+                        <h1><?php echo strtoupper($_SESSION['user']);?></h1><hr>
                         <p><?php echo "Clasificación : ".$_user['clasificacion'];?></p>
 
                         <span style="color:red"> SEGURO QUIERES ELIMINAR ?</span>
@@ -103,7 +105,7 @@
 
                     <p>
                       <?php
-                      echo "Hola  ".$_user['nick'];
+                      echo "Hola  ".strtoupper($_user['nick']);
                       echo "<hr>";
                       echo "Nombre : ".$_user['name']."<br>";
                       echo "Apellido 1 : ".$_user['surname_01']."<br>";
@@ -117,9 +119,7 @@
                       echo "<hr>";
                       echo "Ultima conexion : ".$_user['last_connection'];
                       echo "<hr>";
-                      echo "Estado : ".$_user['id_estado'];
-
-                        ?>
+                      ?>
                       </p>
 
       									<hr>

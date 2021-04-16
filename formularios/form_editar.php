@@ -49,7 +49,10 @@
               <div   class="div_menu" >
                   <ul class="nav">
                     <li> <a href="../index.php">Inicio</a> </li>
-                    </ul>
+                    <li> <a href="../seguridad/cambiar_pwd.php">Contraseña</a> </li>
+                    <li> <a href="../sesiones/destroy_session.php"> Logout</a></li>
+
+                  </ul>
               </div>
         </div>
 
@@ -73,7 +76,7 @@
                             echo "<img src=$_foto alt='foto perfil'>";
 
                         ?>
-                        <h1>Perfil <?php echo $_SESSION['user'];?></h1><hr>
+                        <h1><?php echo strtoupper($_SESSION['user']);?></h1><hr>
                       <!--  <span style="color:red"> * Campos Obligatorios </span>-->
                         <hr>
 
@@ -119,18 +122,18 @@
 
 
       			                <div class="div_form_error" id="message_birth"></div>
-
+<!--
       			                <span style="color:red">*</span> PASSWORD <br>
       			            	  <input  class="form_pwd"  type="password" name="pwd" id="pwd" placeholder="User password"  required
-                            onblur="rellena_password();" value ="***********">
+                            onblur="rellena_password();" >
       									    <div class="div_form_error" id="message_pwd"></div>
 
       											<span style="color:red">*</span> REPITE PASSWORD <br>
       											<input  class="form_pwd"  type="password" name="pwd_2" id="pwd_2" placeholder="User password"  required
-                            onblur="rellena_password_2();" value ="***********">
+                            onblur="rellena_password_2();" >
       											<div class="div_form_error" id="message_pwd_2"></div>
 
-
+-->
       											<hr>
       											<div class="div_button"><input id="button" type="submit" name="Aceptar" value="ACEPTAR"></div>
 

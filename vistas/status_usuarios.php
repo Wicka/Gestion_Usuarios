@@ -120,83 +120,64 @@ include ("../db/get_datas.php");
                               case '0':
                                       // code...
                                       //ELIMINAR DE TABLA  USUARIO
-                                      //QUERY ALTA POR DEFECTO STATUS 1 ACTIVO
-                                  //    $_nick= $_SESSION['user'];
-                                  //    $_status='1';
+
+                                      $conn=Connect_BBDD();
+                                      $_nick = filter_var(strtolower(trim($_SESSION['user'])), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
+
+                                      $_user = get_user_by_nick($_nick, $conn );
+
+                                      echo "<pre>";
+                                        print_r($_user);
+                                      echo "</pre>";
+
+                                      $conn=Connect_BBDD();
+
+                                      $_id =  $_user['id'];
 
 
+                                      $QUERY_delete = "DELETE FROM `users` WHERE id=$_id;";
 
+                                      //EXCUTO LA QUERY I GUARDO A VARIABLE
+                                      $registre = $conn->query($QUERY_delete);
 
-                                              $conn=Connect_BBDD();
-                                              $_nick = filter_var(strtolower(trim($_SESSION['user'])), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
-
-                                              $_user = get_user_by_nick($_nick, $conn );
-
-                                              echo "<pre>";
-                                              print_r($_user);
-                                              echo "</pre>";
-
-                                              $conn=Connect_BBDD();
-
-                                              $_id =  $_user['id'];
-                                              echo "s_ide :".$_id."<hr>";
-                                      //        $_nom =$_user['nick'];
-//
-
-                                  $QUERY_delete = "DELETE FROM `users` WHERE id=$_id;";
-
-                                  //EXCUTO LA QUERY I GUARDO A VARIABLE
-                                  $registre = $conn->query($QUERY_delete);
-
-                                //      $QUERY_delete = "DELETE FROM `users` WHERE nick=$_nick;";
-
-                                //      $conn=Connect_BBDD();
-                                      //EJECUTO LA QUERY INSERTAR NUEVO USUARIO
-                                //      $res_Update_QUERY = $conn->query($QUERY_delete);
-
-
-                                     //EXECUTO LA QUERY
-                                //     $conn->query($QUERY_delete);
-                                  //   unset($_SESSION['user']);
 
                                      $conn->close();
-                                  //   header("Location: ..");
+
                                     echo "<hr>usuario Eliminado de nuestra Base de Datos<hr>";
                                     unset($_SESSION['user']);
-                                   echo "<span style='color:white'><a href='..'>Login</a></span>";
-
+                                    echo "<span style='color:white'><a href='..'>Login</a></span>";
+                                    //BORRO SU imagen
+                                    //ELIMINO IMAGEN
+                                    unlink("../img/users/".$_id.".png");
                                 break;
 
                                 case '4':
-                                          // code...
-                                          //ACTIVAR USUARIO
-                                          //QUERY ALTA POR DEFECTO STATUS 1 ACTIVO
-                                          $_nick= $_SESSION['user'];
-                                          $_status='1';
+                                    // code...
+                                   //ACTIVAR USUARIO
+                                  //QUERY ALTA POR DEFECTO STATUS 1 ACTIVO
+                                    $_nick= $_SESSION['user'];
+                                    $_status='1';
 
-                                          $_sql_Update= "UPDATE `users`
-                                          SET `id_estado` = '$_status'
-                                          WHERE `users`.`nick` = '$_nick';";
+                                    $_sql_Update= "UPDATE `users`
+                                    SET `id_estado` = '$_status'
+                                    WHERE `users`.`nick` = '$_nick';";
 
-                                          $conn=Connect_BBDD();
-                                          //EJECUTO LA QUERY INSERTAR NUEVO USUARIO
-                                          $res_Update_QUERY = $conn->query($_sql_Update);
+                                    $conn=Connect_BBDD();
+                                    //EJECUTO LA QUERY update USUARIO
+                                    $res_Update_QUERY = $conn->query($_sql_Update);
+                                   $conn->query($_sql_Update);
+                              //   unset($_SESSION['user']);
 
+                                   $conn->close();
+                            //     header("Location: ..");
+                                   echo "<hr>usuario Activado<hr>";
+                                   echo "<a href='..'><span style='color:white'>IR AL PERFIL</span></a></span>";
 
-                                         //EXECUTO LA QUERY
-                                         $conn->query($_sql_Update);
-                                      //   unset($_SESSION['user']);
-
-                                         $conn->close();
-                                    //     header("Location: ..");
-                                          echo "<hr>usuario Activado<hr>";
-                                          echo "<a href='..'><span style='color:white'>IR AL PERFIL</span></a></span>";
-
-                                    break;
+                              break;
 
                               default:
-                                // code...
-                                break;
+                              // code...
+                              break;
                             }
 
                       }

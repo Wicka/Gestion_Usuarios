@@ -68,7 +68,7 @@
 									</form>
 
 									<article class="">
-											<a href="formularios/form_altas.php">Registrate si eres nuevo !! </a>
+											<a href="formularios/form_altas.php" >Registrate si eres nuevo !! </a>
 									</article>
 							</div>
 

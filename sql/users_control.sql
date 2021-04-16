@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-04-2021 a las 11:10:54
+-- Tiempo de generación: 16-04-2021 a las 13:55:41
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.4.15
 
@@ -69,14 +69,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nick`, `email`, `name`, `surname_01`, `surname_02`, `birth_date`, `pwd`, `create_date`, `last_connection`, `id_estado`, `clasificacion`) VALUES
-(1, 'alvin', 'alvin@alvin.com', 'Juan', 'Marcea', 'Tomas', '1969-04-01 00:00:00', '$2y$10$6ofSjhYiSGon/PZaNmzK/e0MKrPHYuTBNoeewRNCkOm.QouryyWfi', '2021-04-13 09:05:37', '2021-04-15 10:56:50', 1, 0),
-(2, 'wicka', 'wicka@wicka.es', 'Ester', 'Kalimantan', 'Derawan', '1971-12-16 00:00:00', '$2y$10$kW6VBgeIVqRLsM7nLP.i8.dha2np5uKkDENG7KzzF0Z/JufwNHB6i', '2021-04-13 09:23:57', '2021-04-15 10:57:47', 4, 0),
-(3, 'varum', 'varum@varum.com', 'Elisabeth', 'Luna', 'Potter', '2011-12-27 00:00:00', '$2y$10$Ig2XIXOOl6Mtd7tNbsKrI.LpaiJrf9TM2rIrCotYyP3grEy4t7r8W', '2021-04-13 09:35:24', '2021-04-13 17:21:48', 1, 0),
-(4, 'gollum', 'gollum@gollum.com', 'Gollum', 'Frodo', 'Bolson', '2001-02-01 00:00:00', '$2y$10$2pbuBLorC4LQb4L5B9thf.gsMk82doiraIZXOI7WzcflFDi6PXuuW', '2021-04-13 09:37:33', '2021-04-13 19:07:00', 0, 0),
-(5, 'doreimon', 'doreimon@doreimon.com', 'Pepe', 'Pepito', 'Palotes', '1979-12-11 00:00:00', '$2y$10$HokQyTnUttTPR.NifRCGwOgpsfeeSXafs7r13/EAl4/U5eYh3wpe6', '2021-04-13 09:39:16', '2021-04-13 09:39:16', 1, 0),
-(6, 'fish', 'fish@fish.com', 'Mero', 'Verde', 'Caribe', '2005-01-01 00:00:00', '$2y$10$4eeqGXNi55DgyyWw52Pxo.Bx0Er5lygWMzDbBnsuA8lsi5anGCrAy', '2021-04-13 09:52:31', '2021-04-13 09:52:31', 2, 0),
-(7, 'fangoria', 'fango@fango.es', 'Alaska', 'Fanguita', 'Rodriguez', '1982-02-08 00:00:00', '$2y$10$xPV4DcRutNEHW2Fuq3CLNOjH7OBkce7x.x9KFFaAgar9Im.CJy4KK', '2021-04-13 10:11:59', '2021-04-13 10:11:59', 3, 0),
-(8, 'dominium', 'dominium@dominium.com', 'Luke', 'Sky', 'Walker', '1962-11-25 00:00:00', '$2y$10$tk0B9fynQMIWHVSXcrBCru7BnwfkVSa2yqxNWVxDvRfHob1fYEfpG', '2021-04-13 10:16:44', '2021-04-13 10:16:44', 1, 0);
+(1, 'alvin', 'alvin@alvin.es', 'Ardilla', 'Roja', 'Borneo', '2000-01-01 00:00:00', '$2y$10$sCQoZKbU8DICovRb/5dDOOekBKOLc93lWo2LRFx7LT97DIznJiSSa', '2021-04-16 13:45:25', '2021-04-16 13:51:56', 0, 0),
+(2, 'gollum', 'gollum@gollum.es', 'Gollum', 'Malote', 'Joyero', '2000-11-01 00:00:00', '$2y$10$v1BWD9U5JuHQFTe46BFWr.406KsyQc6Ny/pMIwO/yP9UkB.i0G0g.', '2021-04-16 13:47:15', '2021-04-16 13:47:15', 1, 0),
+(3, 'titania', 'oberon@oberon.es', 'Oberon', 'Titania', 'Verano', '2000-11-01 00:00:00', '$2y$10$osAj.hC2wipXtMKRo7rrHe3SV6TSJNlMT5W4T.2DnaVQeVPMOZ32G', '2021-04-16 13:48:12', '2021-04-16 13:48:12', 1, 0),
+(4, 'otelo', 'otelo@otelo.com', 'Shakespeare ', 'Desdemona', 'celos', '2000-01-01 00:00:00', '$2y$10$kV29Uy8aVQX2rudoSJL/uOwHLY.eW2tu1HwI5zsiUXyFl/fiKRJMS', '2021-04-16 13:50:45', '2021-04-16 13:51:16', 4, 0),
+(5, 'yugi', 'muto@muto.es', 'Kazuki ', 'Takahashi', 'muto', '2000-11-11 00:00:00', '$2y$10$PfP9LmIQWxFmwGVMlEFqJ.Oza9Yt8HJHVLa/reL5toiNJL0NmgTn2', '2021-04-16 13:54:51', '2021-04-16 13:54:51', 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -106,6 +103,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `status_users`
   MODIFY `id_status` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

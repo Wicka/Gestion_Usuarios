@@ -68,7 +68,7 @@
              echo "ERROR EN LA SUBIDA <hr>";
              echo $_FILES['userfile']['error']."<hr>";
 
-    //         header("Location: ../formularios/form_altas.php");
+             header("Location: ..");
        }else {
 
            echo "FICHERO SUBIDO CON EXITO<hr>";

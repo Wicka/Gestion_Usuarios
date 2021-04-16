@@ -10,7 +10,8 @@
     if($_POST!=null){
 
         echo "01<hr>";
-                if($_POST['pwd']!=null and $_POST['name']!=null and $_POST['surname_1']!=null and $_POST['birth']!=null and $_POST['email']!=null){
+
+                if($_POST['name']!=null and $_POST['surname_1']!=null and $_POST['birth']!=null and $_POST['email']!=null){
 
 
                   echo "02<hr>";
@@ -18,7 +19,6 @@
                   $conn=Connect_BBDD();
 
                   $_nick = filter_var(strtolower(trim($_SESSION['user'])), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
-                  $_pwd =  filter_var(trim($_POST['pwd']), FILTER_SANITIZE_STRING);
                   $_name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
                   $_surname_1 = filter_var($_POST['surname_1'], FILTER_SANITIZE_STRING);
                   $_surname_2 =  filter_var($_POST['surname_2'], FILTER_SANITIZE_STRING);
@@ -26,7 +26,7 @@
                   $_birth =  filter_var(trim($_POST['birth']), FILTER_SANITIZE_NUMBER_INT);
 
                   echo "03<hr>";
-                  $_pwd_codificada = codifica_PWD($_pwd);
+            //      $_pwd_codificada = codifica_PWD($_pwd);
 
                   echo "nick :".$_nick;
 
@@ -37,8 +37,7 @@
                       name='$_name',
                       surname_01='$_surname_1',
                       surname_02='$_surname_2',
-                      birth_date='$_birth',
-                      pwd='$_pwd_codificada'
+                      birth_date='$_birth'
                       WHERE  nick= '$_nick';";
 
 
@@ -54,7 +53,7 @@
                      echo "ERROR EN LA SUBIDA <hr>";
                      echo $_FILES['userfile']['error']."<hr>";
 
-                     header("Location: ../form_altas.php");
+          //           header("Location: ../form_altas.php");
                  }else {
 
                      echo "FICHERO SUBIDO CON EXITO<hr>";
@@ -92,16 +91,16 @@
 
                 else{
                   echo "CAMPOS DEL POST ALGUNO VACIO<hr>";
-                  header("Location: ../formularios/form_altas.php");
-                  die();
+  //                header("Location: ../formularios/form_altas.php");
+  //                die();
 
                 }
 
 
     }else{
       echo "NADA POR POST PARA ALTA USUARIO .";
-      header("Location: ..");
-      die();
+  //    header("Location: ..");
+  //    die();
     }
 
 

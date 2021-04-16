@@ -18,21 +18,15 @@ body{
   -o-background-size: cover;
 }
 
-#index{
-    background: url("../img/fondo/fondo_03.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+#cambiar_pwd{
+  background: url("../img/fondo/fondo_02.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
-#eliminar{
-    background: url("../img/fondo/fondo_09.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-}
-#msj_eliminar{
-    background: url("../img/fondo/fondo_11.jpg") no-repeat center center fixed;
+#index{
+    background: url("../img/fondo/fondo_03.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -43,13 +37,6 @@ body{
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-}
-
-#status{
-  background: url("../img/fondo/fondo_10.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
 }
 
 #perfil{
@@ -65,6 +52,34 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
 }
+
+#eliminar{
+    background: url("../img/fondo/fondo_09.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+
+#status{
+  background: url("../img/fondo/fondo_10.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+
+#msj_eliminar{
+    background: url("../img/fondo/fondo_11.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+
+
+
+
 
 body{
   -webkit-background-size: cover;
@@ -113,14 +128,14 @@ section, div{
       align-items: center;
       align-content: center;
       text-align: center;
-      width: 45%;
+      width: 85%;
       min-width: 475px;
   }
 
 /*LISTA MENU PRINCIPAL*/
   .contenedor .div_menu .nav {
       text-align: center;
-      width:500px;
+      width:1000px;
       margin:0 auto;
   }
 /*ELEMENTO DE LISTA MENU PRINCIPAL*/
@@ -194,9 +209,11 @@ section, div{
 }
 #cancelar_botones{
   color: white;
-
 }
 
+#resultado{
+  text-align: center;
+}
 /*******************************/
 /*******************************/
 

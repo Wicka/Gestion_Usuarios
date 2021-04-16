@@ -74,6 +74,9 @@
                                   echo "Usuario : ".strtoupper($_nom). " Ha sido eliminado permanentemente...<hr>";
                                   session_destroy();
                                   echo "<a href='../index.php'>INICIO</a>";
+                                  //ELIMINO IMAGEN 
+                                  unlink("../img/users/".$_id.".png");
+                                  //echo "elimnada imagen tambien ".$_id.".png<hr>";
 
                                 }else{
 

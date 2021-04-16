@@ -75,7 +75,7 @@
                   <?php
                     if ($_user!=-1 and $_user['id_estado']==1){
 
-                      echo "Hola  ".$_user['nick'];
+                      echo "Hola  ".strtoupper($_user['nick']);
                       echo "<hr>";
                       echo "Nombre : ".$_user['name']."<br>";
                       echo "Apellido 1 : ".$_user['surname_01']."<br>";
@@ -93,7 +93,7 @@
                       $conn =Connect_BBDD();
                       $_estado=get_status_by_id($_user['id_estado'], $conn);
 
-                      echo "Usuario : ".$_estado['status'];            
+                      echo "Usuario : ".$_estado['status'];
                       echo "<hr>";
                       echo "Clasificación : ".$_user['clasificacion'];
 

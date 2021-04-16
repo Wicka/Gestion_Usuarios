@@ -112,7 +112,7 @@
 																<input type="checkbox" id="politica" name="politica" value="politica">
 													</label>
 
-													<a href="../vistas/politica_datos.php">Leer politica de datos !! </a>
+													<a href="../vistas/politica_datos.php" target="_blank">Leer politica de datos !! </a>
 
 											</div>
 											<hr>

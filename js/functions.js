@@ -266,6 +266,22 @@ function rellena_password_2(){
 function valida_form(){
 	if (rellena_nick()&& rellena_email() && rellena_name() && rellena_surname_1() && rellena_birth() && rellena_password() && rellena_password_2()){
 		//	AMBOS CAMPOS RELLENADOS SIN ERRORES
+		if (document.getElementById("politica").checked){
+			return true;
+		}else{
+			alert("ACEPTA LA POLITICA DE DATOS");
+			return false;
+		}
+
+	}else{
+		//	CAMPOS SIN RELLENAR
+		return false;
+	}
+}
+
+function valida_pwd_nuevos(){
+	if (rellena_password() && rellena_password_2()){
+		//	AMBOS CAMPOS RELLENADOS SIN ERRORES
 		return true;
 	}else{
 		//	CAMPOS SIN RELLENAR
